@@ -17,7 +17,7 @@ gradlePlugin {
             id = "org.splitties.dependencies-dsl"
             displayName = "Dependencies DSL"
             description = "More concise dependencies declaration. Avoid repeating implementation, api, etc."
-            tags = listOf("kotlin-dsl", "kotlin")
+            tags = listOf("kotlin-dsl", "kotlin", "dependencies")
             implementationClass = "org.splitties.gradle.DependenciesDslPlugin"
         }
     }
