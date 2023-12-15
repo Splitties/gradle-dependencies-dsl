@@ -1,4 +1,4 @@
-# This file was generated using Kotlin DSL (publish-plugins.main.kts).
+# This file was generated using Kotlin DSL (.github/workflows/publish-plugins.main.kts).
 # If you want to modify the workflow, please change the Kotlin file and regenerate this YAML file.
 # Generated with https://github.com/typesafegithub/github-workflows-kt
 
@@ -22,7 +22,7 @@ jobs:
       uses: 'actions/checkout@v4'
     - id: 'step-1'
       name: 'Execute script'
-      run: 'rm ''.github/workflows/publish-plugins.yaml'' && ''publish-plugins.main.kts'''
+      run: 'rm ''.github/workflows/publish-plugins.yaml'' && ''.github/workflows/publish-plugins.main.kts'''
     - id: 'step-2'
       name: 'Consistency check'
       run: 'git diff --exit-code ''.github/workflows/publish-plugins.yaml'''
