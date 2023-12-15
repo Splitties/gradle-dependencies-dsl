@@ -30,6 +30,7 @@ workflow(
     job(id = "gradle-plugins-publishing", runsOn = RunnerType.UbuntuLatest) {
         checkout()
         setupJava()
+        setupGradle()
         gradle(
             task = "publishPlugins",
             properties = mapOf(
@@ -43,22 +44,21 @@ workflow(
 //region Supporting functions
 
 // https://github.com/gradle/gradle-build-action
+fun JobBuilder<*>.setupGradle() = uses(action = GradleBuildActionV2())
+
 fun JobBuilder<*>.gradle(
-    gradleExecutable: String? = null,
     task: String,
     scan: Boolean = false,
     properties: Map<String, String>
-) = uses(
-    action = GradleBuildActionV2(
-        gradleExecutable = gradleExecutable,
-        arguments = buildList {
-            add(task)
-            if (scan) add("--scan")
-            properties.forEach { (key, value) ->
-                add("-P$key=$value")
-            }
-        }.joinToString(separator = " ")
-    )
+) = run(
+    command = buildList {
+        add("./gradlew")
+        add(task)
+        if (scan) add("--scan")
+        properties.forEach { (key, value) ->
+            add("-P$key=$value")
+        }
+    }.joinToString(separator = " ")
 )
 
 fun manualTrigger() = WorkflowDispatch()
