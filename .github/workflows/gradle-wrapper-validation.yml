@@ -3,12 +3,12 @@ on:
   workflow_dispatch: {}
   push:
     paths:
-      - 'gradle/gradle-wrapper.jar'
-      - 'gradle/gradle-wrapper.properties'
+      - 'gradle/wrapper/gradle-wrapper.jar'
+      - 'gradle/wrapper/gradle-wrapper.properties'
   pull_request:
     paths:
-      - 'gradle/gradle-wrapper.jar'
-      - 'gradle/gradle-wrapper.properties'
+      - 'gradle/wrapper/gradle-wrapper.jar'
+      - 'gradle/wrapper/gradle-wrapper.properties'
 
 jobs:
   validation:
