@@ -41,6 +41,14 @@ class ConfigurationDependencyScope internal constructor(
     operator fun Any.invoke() {
         handler.add(configurationName, this)
     }
+
+    fun platform(dependencyNotation: Any) {
+        handler.platform(dependencyNotation)()
+    }
+
+    fun platform(dependencyNotation: Any, dependencyConfiguration: Action<ExternalModuleDependency>) {
+        handler.platform(dependencyNotation)(dependencyConfiguration)
+    }
 }
 
 fun <T : ModuleDependency> T.exclude(dependencyNotation: CharSequence): T {
