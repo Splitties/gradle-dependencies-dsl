@@ -6,6 +6,9 @@ import org.gradle.api.artifacts.ModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 
+@Suppress("UnusedReceiverParameter") // Used for scoping
+fun DependencyHandler.plugin(id: String, version: String = "_") = "$id:$id.gradle.plugin:$version"
+
 fun DependencyHandler.implementation(block: ConfigurationDependencyScope.() -> Unit) {
     this("implementation", block)
 }
