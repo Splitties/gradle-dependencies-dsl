@@ -21,6 +21,18 @@ fun DependencyHandler.testImplementation(block: ConfigurationDependencyScope.() 
     this("testImplementation", block)
 }
 
+fun DependencyHandler.androidTestImplementation(block: ConfigurationDependencyScope.() -> Unit) {
+    this("androidTestImplementation", block)
+}
+
+fun DependencyHandler.debugImplementation(block: ConfigurationDependencyScope.() -> Unit) {
+    this("debugImplementation", block)
+}
+
+fun DependencyHandler.releaseImplementation(block: ConfigurationDependencyScope.() -> Unit) {
+    this("releaseImplementation", block)
+}
+
 operator fun DependencyHandler.invoke(
     configurationName: String,
     block: ConfigurationDependencyScope.() -> Unit
