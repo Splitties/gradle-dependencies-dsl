@@ -85,7 +85,7 @@ Go in the `settings.gradle.kts` file, located at the root of your Gradle project
 Add the following line into the `plugins { … }` block (add one at the top of the file it there's none):
 
 ```gradle.kts
-id("org.splitties.dependencies-dsl") version "0.1.0"
+id("org.splitties.dependencies-dsl") version "0.2.0"
 ```
 
 It can also work if you add it in the `build.gradle.kts` file of the module you want to try this DSL in.
